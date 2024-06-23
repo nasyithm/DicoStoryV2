@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DicoStoryV2</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Daftar</string>
+    <string name="name">Nama</string>
+    <string name="logout">Logout</string>
+    <string name="add_story">Tambah Cerita</string>
+    <string name="upload">Unggah</string>
+    <string name="gallery">Galeri</string>
+    <string name="camera">Kamera</string>
+    <string name="story_image">Gambar Cerita</string>
+    <string name="location">Lokasi</string>
+    <string name="description">Deskripsi</string>
+    <string name="succeed">Berhasil</string>
+    <string name="failed">Gagal</string>
+    <string name="ok">OK</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+    <string name="proceed">Lanjut</string>
+    <string name="back">Kembali</string>
+    <string name="list_story">Daftar Cerita</string>
+    <string name="retry">Coba lagi</string>
+    <string name="get_data_failed">Gagal Mendapatkan Data</string>
+    <string name="story_added">Cerita baru berhasil ditambahkan</string>
+    <string name="login_succeed">Anda berhasil login</string>
+    <string name="invalid_email">Format email tidak valid</string>
+    <string name="invalid_password">Password tidak boleh kurang dari 8 karakter</string>
+    <string name="empty_edit_text">Input tidak boleh kosong</string>
+    <string name="account_created">Akun dengan email %1$s berhasil dibuat</string>
+    <string name="input_desc_first">Silahkan masukkan deskripsi terlebih dahulu</string>
+    <string name="input_image_first">Silahkan masukkan berkas gambar terlebih dahulu</string>
+    <string name="confirm_logout">Apakah anda yakin ingin logout?</string>
+    <string name="camera_permission_granted">Izin penggunaan kamera diberikan</string>
+    <string name="camera_permission_rejected">Izin penggunaan kamera ditolak</string>
+    <string name="fine_location_permission_granted">Izin penggunaan lokasi tepat diberikan</string>
+    <string name="coarse_location_permission_granted">Izin penggunaan lokasi perkiraan diberikan</string>
+    <string name="location_permission_rejected">Izin penggunaan lokasi ditolak</string>
+    <string name="loading">Memuat</string>
+    <string name="appwidget_text">DICOSTORYV2 BANNER</string>
+    <string name="empty_text">TIDAK ADA DATA</string>
+    <string name="app_widget_description">DicoStory Widget</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="stories_maps">Stories Maps</string>
+</resources>
