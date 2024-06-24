@@ -49,7 +49,6 @@ class AddStoryActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddStoryBinding
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
-    private var currentImageUri: Uri? = null
     private var tempImageUri: Uri? = null
     private var locLatLng: LatLng? = null
 
@@ -296,6 +295,7 @@ class AddStoryActivity : AppCompatActivity() {
     }
 
     companion object {
+        var currentImageUri: Uri? = null
         private const val FILENAME_FORMAT = "yyyyMMdd_HHmmss"
         var timeStamp: String = SimpleDateFormat(FILENAME_FORMAT, Locale.US).format(Date())
     }

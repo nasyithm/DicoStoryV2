@@ -18,6 +18,7 @@ import com.nasyithm.dicostoryv2.data.remote.response.ListStoryItem
 import com.nasyithm.dicostoryv2.data.remote.response.LoginResponse
 import com.nasyithm.dicostoryv2.data.remote.response.StoriesResponse
 import com.nasyithm.dicostoryv2.data.remote.retrofit.ApiService
+import com.nasyithm.dicostoryv2.util.wrapEspressoIdlingResource
 import kotlinx.coroutines.flow.Flow
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -58,7 +59,7 @@ class StoryRepository private constructor(
         }
     }
 
-    fun getStoriesPagingData(): LiveData<PagingData<ListStoryItem>> {
+    fun getStories(): LiveData<PagingData<ListStoryItem>> {
         @OptIn(ExperimentalPagingApi::class)
         return Pager(
             config = PagingConfig(
@@ -88,16 +89,18 @@ class StoryRepository private constructor(
 
     fun addStory(file: MultipartBody.Part, description: RequestBody, lat: Double?, lon: Double?): LiveData<Result<ErrorResponse>> = liveData {
         emit(Result.Loading)
-        try {
-            val response = apiService.addStory(file, description, lat, lon)
-            emit(Result.Success(response))
-        } catch (e: HttpException) {
-            val jsonInString = e.response()?.errorBody()?.string()
-            val errorBody = Gson().fromJson(jsonInString, ErrorResponse::class.java)
-            val errorMessage = errorBody.message
+        wrapEspressoIdlingResource {
+            try {
+                val response = apiService.addStory(file, description, lat, lon)
+                emit(Result.Success(response))
+            } catch (e: HttpException) {
+                val jsonInString = e.response()?.errorBody()?.string()
+                val errorBody = Gson().fromJson(jsonInString, ErrorResponse::class.java)
+                val errorMessage = errorBody.message
 
-            Log.d("StoryRepository", "addStory: $errorMessage")
-            emit(Result.Error(errorMessage.toString()))
+                Log.d("StoryRepository", "addStory: $errorMessage")
+                emit(Result.Error(errorMessage.toString()))
+            }
         }
     }
 
