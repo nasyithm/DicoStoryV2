@@ -44,4 +44,5 @@
     <string name="app_widget_description">DicoStory Widget</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="stories_maps">Stories Maps</string>
+    <string name="map_style_parsing_failed">Penguraian gaya peta gagal</string>
 </resources>

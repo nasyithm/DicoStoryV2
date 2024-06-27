@@ -29,11 +29,13 @@ class StoriesAdapter : PagingDataAdapter<ListStoryItem, StoriesAdapter.ListViewH
 
     class ListViewHolder(private val binding: ItemListStoryBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(story: ListStoryItem) {
-            Glide.with(binding.root)
-                .load(story.photoUrl)
-                .into(binding.ivItemPhoto)
-            binding.tvItemName.text = story.name
-            binding.tvItemDescription.text = story.description
+            binding.apply {
+                Glide.with(root)
+                    .load(story.photoUrl)
+                    .into(ivItemPhoto)
+                tvItemName.text = story.name
+                tvItemDescription.text = story.description
+            }
         }
     }
 

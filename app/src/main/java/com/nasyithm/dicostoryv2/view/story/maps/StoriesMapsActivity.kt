@@ -45,10 +45,12 @@ class StoriesMapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        mMap.uiSettings.isZoomControlsEnabled = true
-        mMap.uiSettings.isIndoorLevelPickerEnabled = true
-        mMap.uiSettings.isCompassEnabled = true
-        mMap.uiSettings.isMapToolbarEnabled = true
+        mMap.uiSettings.apply {
+            isZoomControlsEnabled = true
+            isIndoorLevelPickerEnabled = true
+            isCompassEnabled = true
+            isMapToolbarEnabled = true
+        }
 
         setMapStyle()
     }
@@ -117,6 +119,13 @@ class StoriesMapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.map_style))
             if (!success) {
                 Log.e(TAG, "Style parsing failed.")
+                AlertDialog.Builder(this).apply {
+                    setTitle(getString(R.string.failed))
+                    setMessage(getString(R.string.map_style_parsing_failed))
+                    setPositiveButton(getString(R.string.ok)) { _, _ -> }
+                    create()
+                    show()
+                }
             }
         } catch (exception: Resources.NotFoundException) {
             Log.e(TAG, "Can't find style. Error: ", exception)
